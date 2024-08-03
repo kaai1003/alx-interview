@@ -17,6 +17,6 @@ def dfs(boxes, start, visited=None):
         visited = set()
     visited.add(start)
     for key in boxes[start]:
-        if key not in visited:
+        if key not in visited and key < len(boxes):
             dfs(boxes, key, visited)
     return visited
