@@ -13,3 +13,6 @@ print(canUnlockAll(boxes))
 
 boxes = [[], [], []]
 print(canUnlockAll(boxes))
+
+boxes = [[i for i in range(1000)] for _ in range(1000)]
+print(canUnlockAll(boxes))

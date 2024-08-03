@@ -11,12 +11,16 @@ def canUnlockAll(boxes):
     return False
 
 
-def dfs(boxes, start, visited=None):
-    """Depth-First Search Algorithm"""
-    if visited is None:
-        visited = set()
-    visited.add(start)
-    for key in boxes[start]:
-        if key not in visited and key < len(boxes):
-            dfs(boxes, key, visited)
+def dfs(boxes, start):
+    """Depth-First Search Algorithm without recursion"""
+    visited = set()
+    stack = [start]
+
+    while stack:
+        box = stack.pop()
+        if box not in visited:
+            visited.add(box)
+            for key in boxes[box]:
+                if key not in visited and key < len(boxes):
+                    stack.append(key)
     return visited
