@@ -5,8 +5,8 @@ Main file for testing
 
 minOperations = __import__('0-minoperations').minOperations
 
-n = 1
+n = 5
 print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
 
-n = 2
+n = 3
 print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
