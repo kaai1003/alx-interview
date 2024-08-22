@@ -4,27 +4,27 @@
 
 def check_byte(byte):
     """check number of bytes"""
-    if (byte >> 5) == 0b110:
-        return 1
-    if (byte >> 4) == 0b1110:
-        return 2
-    if (byte >> 3) == 0b11110:
-        return 3
-    if (byte >> 7):
-        return 0
+    count = 0
+    mask = 1 << 7
+    while mask & byte:
+        count += 1
+        mask = mask >> 1
+    return count
 
 
 def validUTF8(data):
     """utf-8 validation func"""
     char_bytes = 0
     for byte in data:
-        byte &= 0xFF
         if char_bytes == 0:
             char_bytes = check_byte(byte)
             if char_bytes == 0:
+                continue
+            if char_bytes == 1 or char_bytes > 4:
                 return False
         else:
+            byte = byte & 0xFF
             if (byte >> 6) != 0b10:
                 return False
-            char_bytes -= 1
+        char_bytes -= 1
     return True
