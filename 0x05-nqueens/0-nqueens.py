@@ -31,6 +31,7 @@ def print_solution(board):
 
 
 def check_place(r, c):
+    """check place func"""
     if c in column or (r - c) in negDiag or (r + c) in posDiag:
         return False
     return True
