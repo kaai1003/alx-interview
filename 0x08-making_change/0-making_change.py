@@ -23,5 +23,5 @@ def makeChange(coins, total):
         new_total += coin * int(rem / coin)
         rem = int(rem % coin)
     if new_total == total:
-            return total_coins
+        return total_coins
     return -1
