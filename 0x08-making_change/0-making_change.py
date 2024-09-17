@@ -17,9 +17,11 @@ def makeChange(coins, total):
     new_total = 0
     rem = total
     for coin in sorted_list:
-        if new_total == total:
-            return total_coins
+        if rem == 0:
+             break
         total_coins += int(rem / coin)
         new_total += coin * int(rem / coin)
         rem = int(rem % coin)
+    if new_total == total:
+            return total_coins
     return -1
